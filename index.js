@@ -79,6 +79,6 @@ function User(firstName, lastName, age) {
   };
 }
 
-const me = new User("Marharyta", "Novolokova", 18);
-console.log(me);
-me.fullName();
+const myName = new User("Marharyta", "Novolokova", 18);
+console.log(myName);
+myName.fullName();
