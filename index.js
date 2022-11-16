@@ -6,18 +6,23 @@ const START_RANGE = 0;
 const END_RANGE = 100;
 /**
  *
- * @param {string} MIN_NUM
- * @param {string} MAX_NUM
+ * @param {string} start
+ * @param {string} end
  * @returns {number}
  */
-const guessNumber = function (START_RANGE = 0, END_RANGE = 100) {
+const guessNumber = function (start = 0, end = 100) {
   while (true) {
     const input = prompt("Enter Number");
 
-    if (input != "" && !isNaN(Number(input)) && input != null && input != " ") {
-      if (input > START_RANGE && input < END_RANGE) {
-        return Number(input);
-      }
+    if (
+      input !== "" &&
+      !isNaN(Number(input)) &&
+      input !== null &&
+      input !== " " &&
+      input > start &&
+      input < end
+    ) {
+      return Number(input);
     }
   }
 };
@@ -29,19 +34,21 @@ const guessNumber = function (START_RANGE = 0, END_RANGE = 100) {
 
 /**
  *
- * @param {number} text
+ * @param {number} value
+ * @returns {undefined}
  */
 const showOutput = function (value) {
   console.log(value);
+  return;
 };
 
 /**
  *
- * @param {number} START_RANGE
- * @param {number} END_RANGE
+ * @param {number} start
+ * @param {number} end
  */
-const findNumber_1 = function (START_RANGE = 0, END_RANGE = 100) {
-  for (let i = END_RANGE; i > START_RANGE; i--) {
+const findNumber_1 = function (start = 0, end = 100) {
+  for (let i = end; i > start; i--) {
     if (i % 2 === 0 && i % 9 === 0) {
       showOutput(i);
     }
@@ -52,11 +59,11 @@ const findNumber_1 = function (START_RANGE = 0, END_RANGE = 100) {
 // другий варіант, але тільки до діапазону (0-100)
 /**
  *
- * @param {number} START_RANGE
- * @param {number} END_RANGE
+ * @param {number} start
+ * @param {number} end
  */
-const findNumber_2 = function (START_RANGE = 0, END_RANGE = 100) {
-  for (let i = END_RANGE; i > START_RANGE; i -= 2) {
+const findNumber_2 = function (start = 0, end = 100) {
+  for (let i = end; i > start; i -= 2) {
     if (i % 9 === 0) {
       showOutput(i);
     }
